@@ -14,10 +14,14 @@ h2 {
 	margin-bottom: 50px;
 }
 
+#whole{
+	width: 100%;
+}
+
 #player1, #player2 {
 	font-size: 30px;
 	position: relative;
-	width: 100%;
+	width: 50%;
 	float: left;
 }
 
@@ -39,6 +43,7 @@ button:hover {
 
 #title1, #title2 {
 	margin-bottom: 0;
+	text-decoration: underline;
 }
 
 #status1, #status2 {

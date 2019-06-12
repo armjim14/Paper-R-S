@@ -22,6 +22,10 @@ database.ref().set({
     user: extra
 })
 
+database.ref().on("value", function(snap){
+    extra = snap.val().user;
+})
+
 connectedRef.on("value", function(snaps){
     if (snaps.val()){
         var con = connectionsRef.push(true);

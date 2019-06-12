@@ -8,15 +8,15 @@ var scoretwo = 0;
 var stage1 = "Not Ready";
 var stage2 = "Not Ready";
 
-  var firebaseConfig = {
-    apiKey: "AIzaSyCPMikfMV7LY137C_HWvupzsEpGqoBJ8KQ",
-    authDomain: "first-project-1589b.firebaseapp.com",
-    databaseURL: "https://first-project-1589b.firebaseio.com",
-    projectId: "first-project-1589b",
-    storageBucket: "first-project-1589b.appspot.com",
-    messagingSenderId: "432852980347",
-    appId: "1:432852980347:web:64b38bfb1ddfa6b2"
-  };
+var firebaseConfig = {
+	apiKey: "AIzaSyCPMikfMV7LY137C_HWvupzsEpGqoBJ8KQ",
+	authDomain: "first-project-1589b.firebaseapp.com",
+	databaseURL: "https://first-project-1589b.firebaseio.com",
+	projectId: "first-project-1589b",
+	storageBucket: "first-project-1589b.appspot.com",
+	messagingSenderId: "432852980347",
+	appId: "1:432852980347:web:64b38bfb1ddfa6b2"
+};
 
 firebase.initializeApp(firebaseConfig);
 
