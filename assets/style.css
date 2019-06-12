@@ -1,0 +1,60 @@
+body{
+	margin: 0;
+	padding: 0;
+	background-color: lightgray;
+	text-align: center;
+}
+
+header {
+	width: 100%;
+}
+
+h2 {
+    font-size: 40px;
+	margin-bottom: 50px;
+}
+
+#whole {
+	width: 100%;
+}
+
+#player1, #player2 {
+	font-size: 30px;
+	position: relative;
+	width: 50%;
+	float: left;
+}
+
+.buttons {
+	position: absolute;
+	left: 35%;
+}
+
+button {
+	border-radius: 35%;
+	background-color: lightblue;
+	width: 90px;
+	font-size: 20px; 
+}
+
+button:hover {
+	background-color: #FA8072;
+}
+
+#title1, #title2 {
+	margin-bottom: 0;
+}
+
+#status1, #status2 {
+	margin-top: 80px;
+}
+
+#final {
+	overflow: auto;
+	width: 100%;
+	margin-top: 40px;
+}
+
+#result {
+	font-size: 25px;
+}
