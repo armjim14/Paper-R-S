@@ -5,11 +5,24 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>Document</title>
+    <link rel="stylesheet" href="assets/style.css">
 </head>
-<body>    
+<body>
+
+<div id="player2">
+    <p id="title2"> Player 2 </p>
+    <p>Score: <span id="twoscore"></span></p>
+    <div class="buttons">
+        <button class="second" data-value="1"> Paper </button>
+        <button class="second" data-value="2"> Rock </button>
+        <button class="second" data-value="3"> scissors </button>
+    </div>
+    <p id="status2"></p>
+</div>
+
 <script src="https://code.jquery.com/jquery-3.4.1.js" integrity="sha256-WpOohJOqMqqyKL9FccASB9O0KwACQJpFTUBLTYOVvVU=" crossorigin="anonymous"></script>   
 <script src="https://www.gstatic.com/firebasejs/6.0.4/firebase-app.js"></script>
 <script src="https://www.gstatic.com/firebasejs/6.0.4/firebase-database.js"></script>
-<script type="text/javascript" src="assets/java2.js"></script>
+<script type="text/javascript" src="assets/java.js"></script>
 </body>
 </html>

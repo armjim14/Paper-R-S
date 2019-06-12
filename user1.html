@@ -1,0 +1,34 @@
+
+<!DOCTYPE html>
+<html>
+<head>
+<link rel="stylesheet" href="assets/style.css">
+<script src="https://code.jquery.com/jquery-3.4.1.js" integrity="sha256-WpOohJOqMqqyKL9FccASB9O0KwACQJpFTUBLTYOVvVU=" crossorigin="anonymous"></script>
+</head>
+<body>
+
+<header>
+	<h2> Paper, Rock, scissors! </h2>
+</header>
+
+	<div id="player1">
+		<p id="title1"> Player 1 </p>
+		<p>Score: <span id="onescore"></span></p>
+		<div class="buttons">
+			<button class="first" data-value="1"> Paper </button>
+			<button class="first" data-value="2"> Rock </button>
+			<button class="first" data-value="3"> scissors </button>
+		</div>
+		<p id="status1"></p>
+	</div>
+
+<div id="final">
+	<hr>
+	<p id="result"><span id="who"></span></p>
+	<center><button id="test"> Start 0ver </button></center>
+</div>
+<script src="https://www.gstatic.com/firebasejs/6.0.4/firebase-app.js"></script>
+<script src="https://www.gstatic.com/firebasejs/6.0.4/firebase-database.js"></script>
+<script type="text/javascript" src="assets/java.js"></script>
+</body>
+</html>

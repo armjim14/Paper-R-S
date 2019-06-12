@@ -14,14 +14,10 @@ h2 {
 	margin-bottom: 50px;
 }
 
-#whole {
-	width: 100%;
-}
-
 #player1, #player2 {
 	font-size: 30px;
 	position: relative;
-	width: 50%;
+	width: 100%;
 	float: left;
 }
 

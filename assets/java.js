@@ -22,6 +22,25 @@ firebase.initializeApp(firebaseConfig);
 
 var database = firebase.database();
 
+var connectionsRef = database.ref("/connections");
+var connectedRef = database.ref(".info/connected");
+
+// connectedRef.on("value", function(snaps){
+//     if (snaps.val()){
+//         var con = connectionsRef.push(true);
+//         con.onDisconnect().remove();
+//     }
+// });
+
+// connectionsRef.on("value", function(snapshot) {
+//     var numb = snapshot.numChildren();
+//     console.log(numb);
+//     if( numb == 2 ){
+// 		window.open("user2.html");
+// 		break;
+//     }
+// });
+
 database.ref().set({
 FirstPlayer: stage1,
 SecondPlayer: stage2,
@@ -92,7 +111,10 @@ $(".second").on("click", function(){
 
 function checkResults() {
 	if (data1 == data2){
-		$("#who").text("It is a tie!");
+        $("#who").text("It is a tie!");
+        count = 0;
+        one = true;
+        two = true;
 		stage1 = "Not Ready";
 		stage2 = "Not Ready";
 
@@ -104,7 +126,10 @@ function checkResults() {
 		})
 	} else if (data1 == "1" && data2 == "2"){
 		scoreone++;
-		$("#who").text("Player 1 Won!");
+        $("#who").text("Player 1 Won!");
+        count = 0;
+        one = true;
+        two = true;
 		stage1 = "Not Ready";
 		stage2 = "Not Ready";
 
@@ -116,7 +141,10 @@ function checkResults() {
 		})
 	}  else if (data1 == "2" && data2 == "3"){
 		scoreone++;
-		$("#who").text("Player 1 Won!");
+        $("#who").text("Player 1 Won!");
+        count = 0;
+        one = true;
+        two = true;
 		stage1 = "Not Ready";
 		stage2 = "Not Ready";
 
@@ -129,7 +157,10 @@ function checkResults() {
 
 	}  else if (data1 == "3" && data2 == "1"){
 		scoreone++
-		$("#who").text("Player 1 Won!");
+        $("#who").text("Player 1 Won!");
+        count = 0;
+        one = true;
+        two = true;
 		stage1 = "Not Ready";
 		stage2 = "Not Ready";
 
@@ -142,7 +173,10 @@ function checkResults() {
 
 	}  else if (data1 == "1" && data2 == "3"){
 		scoretwo++;
-		$("#who").text("Player 2 Won!");
+        $("#who").text("Player 2 Won!");
+        count = 0;
+        one = true;
+        two = true;
 		stage1 = "Not Ready";
 		stage2 = "Not Ready";
 
@@ -154,7 +188,10 @@ function checkResults() {
 		})
 	}  else if (data1 == "2" && data2 == "1"){
 		scoretwo++;
-		$("#who").text("Player 2 Won!");
+        $("#who").text("Player 2 Won!");
+        count = 0;
+        one = true;
+        two = true;
 		stage1 = "Not Ready";
 		stage2 = "Not Ready";
 
@@ -167,7 +204,10 @@ function checkResults() {
 
 	}  else if (data1 == "3" && data2 == "2"){
 		scoretwo++;
-		$("#who").text("Player 2 Won!");
+        $("#who").text("Player 2 Won!");
+        count = 0;
+        one = true;
+        two = true;
 		stage1 = "Not Ready";
 		stage2 = "Not Ready";
 
