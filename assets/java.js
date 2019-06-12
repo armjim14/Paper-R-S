@@ -22,25 +22,6 @@ firebase.initializeApp(firebaseConfig);
 
 var database = firebase.database();
 
-var connectionsRef = database.ref("/connections");
-var connectedRef = database.ref(".info/connected");
-
-// connectedRef.on("value", function(snaps){
-//     if (snaps.val()){
-//         var con = connectionsRef.push(true);
-//         con.onDisconnect().remove();
-//     }
-// });
-
-// connectionsRef.on("value", function(snapshot) {
-//     var numb = snapshot.numChildren();
-//     console.log(numb);
-//     if( numb == 2 ){
-// 		window.open("user2.html");
-// 		break;
-//     }
-// });
-
 database.ref().set({
 FirstPlayer: stage1,
 SecondPlayer: stage2,

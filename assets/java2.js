@@ -1,3 +1,5 @@
+var extra = 0;
+
 var firebaseConfig = {
     apiKey: "AIzaSyCPMikfMV7LY137C_HWvupzsEpGqoBJ8KQ",
     authDomain: "first-project-1589b.firebaseapp.com",
@@ -15,6 +17,11 @@ var database = firebase.database();
 var connectionsRef = database.ref("/connections");
 var connectedRef = database.ref(".info/connected");
 
+
+database.ref().set({
+    user: extra
+})
+
 connectedRef.on("value", function(snaps){
     if (snaps.val()){
         var con = connectionsRef.push(true);
@@ -25,10 +32,19 @@ connectedRef.on("value", function(snaps){
 connectionsRef.on("value", function(snapshot) {
     var numb = snapshot.numChildren();
     console.log(numb);
-    if( numb == 1 ){
-        next();
-    } else if (numb == 2){
+
+    database.ref().on("value", function(pic){
+        extra = pic.val().user;
+    });
+
+    if( numb == 1 && extra == 1 ){
         next2();
+    } else if (numb == 1){
+        extra++;
+        database.ref().set({
+            user: extra
+        })
+        next();
     }
 });
 
