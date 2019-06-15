@@ -133,6 +133,12 @@ $("#run").on("click", function(){
 function checkResults() {
 	console.log("data1 = " + data1);
 	console.log("data2 = " + data2);
+
+	database.ref().on("value", function(snapps){
+		data1 = snapps.val().dataone;
+		data2 = snapps.val().datatwo;
+	
+
 	if (data1 == data2){
         whoWon = "It is a tie!";
         count = 0;
@@ -156,96 +162,129 @@ function checkResults() {
 
 	} else if (data1 == "1" && data2 == "2"){
 		scoreone++;
-        $("#who").text("Player 1 Won!");
-        count = 0;
+        whoWon = "Player 1 Won!";
         one = true;
         two = true;
 		stage1 = "Not Ready";
 		stage2 = "Not Ready";
 
 		database.ref().set({
+		what: whoWon,
 		FirstPlayer: stage1,
 		SecondPlayer: stage2,
 		scoreOne: scoreone,
 		scoreTwo: scoretwo
 		})
+
+		database.ref().on("value", function(snapp){
+			whoWon = snapp.val().what;
+			$("#who").text(whoWon);
+		})
+
 	}  else if (data1 == "2" && data2 == "3"){
 		scoreone++;
-        $("#who").text("Player 1 Won!");
-        count = 0;
+        whoWon = "Player 1 Won!";
         one = true;
         two = true;
 		stage1 = "Not Ready";
 		stage2 = "Not Ready";
 
 		database.ref().set({
+		what: whoWon,
 		FirstPlayer: stage1,
 		SecondPlayer: stage2,
 		scoreOne: scoreone,
 		scoreTwo: scoretwo
+		})
+
+		database.ref().on("value", function(snapp){
+			whoWon = snapp.val().what;
+			$("#who").text(whoWon);
 		})
 
 	}  else if (data1 == "3" && data2 == "1"){
 		scoreone++
-        $("#who").text("Player 1 Won!");
-        count = 0;
+		whoWon = "Player 1 Won!";
         one = true;
         two = true;
 		stage1 = "Not Ready";
 		stage2 = "Not Ready";
 
 		database.ref().set({
+		what: whoWon,
 		FirstPlayer: stage1,
 		SecondPlayer: stage2,
 		scoreOne: scoreone,
 		scoreTwo: scoretwo
+		})
+
+		database.ref().on("value", function(snapp){
+			whoWon = snapp.val().what;
+			$("#who").text(whoWon);
 		})
 
 	}  else if (data1 == "1" && data2 == "3"){
 		scoretwo++;
-        $("#who").text("Player 2 Won!");
-        count = 0;
+		whoWon = "Player 2 Won!";
         one = true;
         two = true;
 		stage1 = "Not Ready";
 		stage2 = "Not Ready";
 
 		database.ref().set({
+		what: whoWon,
 		FirstPlayer: stage1,
 		SecondPlayer: stage2,
 		scoreOne: scoreone,
 		scoreTwo: scoretwo
 		})
+
+		database.ref().on("value", function(snapp){
+			whoWon = snapp.val().what;
+			$("#who").text(whoWon);
+		})
+
 	}  else if (data1 == "2" && data2 == "1"){
 		scoretwo++;
-        $("#who").text("Player 2 Won!");
-        count = 0;
+		whoWon = "Player 1 Won!";
         one = true;
         two = true;
 		stage1 = "Not Ready";
 		stage2 = "Not Ready";
 
 		database.ref().set({
+		what: whoWon,
 		FirstPlayer: stage1,
 		SecondPlayer: stage2,
 		scoreOne: scoreone,
 		scoreTwo: scoretwo
+		})
+
+		database.ref().on("value", function(snapp){
+			whoWon = snapp.val().what;
+			$("#who").text(whoWon);
 		})
 
 	}  else if (data1 == "3" && data2 == "2"){
 		scoretwo++;
-        $("#who").text("Player 2 Won!");
-        count = 0;
+		whoWon = "Player 1 Won!";
         one = true;
         two = true;
 		stage1 = "Not Ready";
 		stage2 = "Not Ready";
 
 		database.ref().set({
+		what: whoWon,
 		FirstPlayer: stage1,
 		SecondPlayer: stage2,
 		scoreOne: scoreone,
 		scoreTwo: scoretwo
 		})
+
+		database.ref().on("value", function(snapp){
+			whoWon = snapp.val().what;
+			$("#who").text(whoWon);
+		})
 	}
+})
 }
