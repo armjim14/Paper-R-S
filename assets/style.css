@@ -50,6 +50,10 @@ button:hover {
 	margin-top: 80px;
 }
 
+#restart {
+	display: none;
+}
+
 #final {
 	overflow: auto;
 	width: 100%;
