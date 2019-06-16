@@ -2,9 +2,9 @@ var one = true;
 var two = true;
 var data1 = "";
 var data2 = "";
-var count = 0;
 var scoreone = 0;
 var scoretwo = 0;
+var countt = 0;
 var stage1 = "Not Ready";
 var stage2 = "Not Ready";
 
@@ -23,6 +23,7 @@ firebase.initializeApp(firebaseConfig);
 var database = firebase.database();
 
 database.ref().set({
+count: countt,
 FirstPlayer: stage1,
 SecondPlayer: stage2,
 scoreOne: scoreone,
@@ -34,6 +35,8 @@ database.ref().on("value", function(snap){
 	SecondPlayer = snap.val().SecondPlayer;
 	scoreOne = snap.val().scoreOne;
 	scoreTwo = snap.val().scoreTwo;
+	countt = snap.val().count;
+
 	$("#status1").text(FirstPlayer);
 	$("#status2").text(SecondPlayer);
 	$("#onescore").text(scoreOne);
@@ -44,22 +47,28 @@ $(".first").on("click", function(){
 	if(one){
 		data1 = $(this).attr("data-value");
 		one = false;
-		count++;
+		countt++;
+
 		stage1 = "Ready";
 
 		database.ref().set({
+		count: countt,
 		FirstPlayer: stage1,
 		SecondPlayer: stage2
 		})
 
 		database.ref().on("value", function(snap){
+
 		FirstPlayer = snap.val().FirstPlayer;
 		SecondPlayer = snap.val().SecondPlayer;
+		countt = snap.val().count;
+
 		$("#status1").text(FirstPlayer);
 		$("#status2").text(SecondPlayer);
-		})
 
-		if(count == 2){
+		})
+		console.log(countt);
+		if (countt == 2){
 			checkResults();
 		}
 	}
@@ -69,134 +78,203 @@ $(".second").on("click", function(){
 	if(two){
 		data2 = $(this).attr("data-value");
 		two = false;
-		count++;
+		countt++;
 		stage2 = "Ready";
 
 		database.ref().set({
+		count: countt,
 		FirstPlayer: stage1,
 		SecondPlayer: stage2
 		})
 
 		database.ref().on("value", function(snap){
-		FirstPlayer = snap.val().FirstPlayer;
-		SecondPlayer = snap.val().SecondPlayer;
-		$("#status1").text(FirstPlayer);
-		$("#status2").text(SecondPlayer);
-		})
+			FirstPlayer = snap.val().FirstPlayer;
+			SecondPlayer = snap.val().SecondPlayer;
+			countt = snap.val().count;
 
-		if(count == 2){
+			$("#status1").text(FirstPlayer);
+			$("#status2").text(SecondPlayer);
+
+		})
+		console.log(countt);
+		if (countt == 2){
 			checkResults();
 		}
 	}
 })
 
 function checkResults() {
+
 	if (data1 == data2){
-        $("#who").text("It is a tie!");
-        count = 0;
+		var result = "It is a tie!";
+        countt = 0;
         one = true;
         two = true;
 		stage1 = "Not Ready";
 		stage2 = "Not Ready";
 
 		database.ref().set({
+		text: result,
+		count: countt,
 		FirstPlayer: stage1,
 		SecondPlayer: stage2,
 		scoreOne: scoreone,
 		scoreTwo: scoretwo
 		})
+
+		database.ref().on("value", function(snap){
+			result = snap.val().text;
+			$("#who").text(result);
+		})
+
 	} else if (data1 == "1" && data2 == "2"){
 		scoreone++;
-        $("#who").text("Player 1 Won!");
-        count = 0;
+		var result = "Player one won!";
+        countt = 0;
         one = true;
         two = true;
 		stage1 = "Not Ready";
 		stage2 = "Not Ready";
 
 		database.ref().set({
+		text: result,
+		count: countt,
 		FirstPlayer: stage1,
 		SecondPlayer: stage2,
 		scoreOne: scoreone,
 		scoreTwo: scoretwo
 		})
+
+		database.ref().on("value", function(snap){
+			result = snap.val().text;
+			scoreone = snap.val().scoreOne;
+			scoretwo = snap.val().scoreTwo;
+			$("#who").text(result);
+		})
+
 	}  else if (data1 == "2" && data2 == "3"){
 		scoreone++;
-        $("#who").text("Player 1 Won!");
-        count = 0;
+		var result = "Player one won!";
+        countt = 0;
         one = true;
         two = true;
 		stage1 = "Not Ready";
 		stage2 = "Not Ready";
 
 		database.ref().set({
+		text: result,
+		count: countt,
 		FirstPlayer: stage1,
 		SecondPlayer: stage2,
 		scoreOne: scoreone,
 		scoreTwo: scoretwo
+		})
+
+		database.ref().on("value", function(snap){
+			result = snap.val().text;
+			scoreone = snap.val().scoreOne;
+			scoretwo = snap.val().scoreTwo;
+			$("#who").text(result);
 		})
 
 	}  else if (data1 == "3" && data2 == "1"){
 		scoreone++
-        $("#who").text("Player 1 Won!");
-        count = 0;
+		var result = "Player one won!";
+        countt = 0;
         one = true;
         two = true;
 		stage1 = "Not Ready";
 		stage2 = "Not Ready";
 
 		database.ref().set({
+		text: result,
+		count: countt,
 		FirstPlayer: stage1,
 		SecondPlayer: stage2,
 		scoreOne: scoreone,
 		scoreTwo: scoretwo
+		})
+
+		database.ref().on("value", function(snap){
+			result = snap.val().text;
+			scoreone = snap.val().scoreOne;
+			scoretwo = snap.val().scoreTwo;
+			$("#who").text(result);
 		})
 
 	}  else if (data1 == "1" && data2 == "3"){
 		scoretwo++;
-        $("#who").text("Player 2 Won!");
-        count = 0;
+		var result = "Player two won!";
+        countt = 0;
         one = true;
         two = true;
 		stage1 = "Not Ready";
 		stage2 = "Not Ready";
 
 		database.ref().set({
+		text: result,
+		count: countt,
 		FirstPlayer: stage1,
 		SecondPlayer: stage2,
 		scoreOne: scoreone,
 		scoreTwo: scoretwo
 		})
+
+		database.ref().on("value", function(snap){
+			result = snap.val().text;
+			scoreone = snap.val().scoreOne;
+			scoretwo = snap.val().scoreTwo;
+			$("#who").text(result);
+		})
+
 	}  else if (data1 == "2" && data2 == "1"){
 		scoretwo++;
-        $("#who").text("Player 2 Won!");
-        count = 0;
+		var result = "Player two won!";
+        countt = 0;
         one = true;
         two = true;
 		stage1 = "Not Ready";
 		stage2 = "Not Ready";
 
 		database.ref().set({
+		text: result,
+		count: countt,
 		FirstPlayer: stage1,
 		SecondPlayer: stage2,
 		scoreOne: scoreone,
 		scoreTwo: scoretwo
+		})
+
+		database.ref().on("value", function(snap){
+			result = snap.val().text;
+			scoreone = snap.val().scoreOne;
+			scoretwo = snap.val().scoreTwo;
+			$("#who").text(result);
 		})
 
 	}  else if (data1 == "3" && data2 == "2"){
 		scoretwo++;
-        $("#who").text("Player 2 Won!");
-        count = 0;
+		var result = "Player two won!";
+        countt = 0;
         one = true;
         two = true;
 		stage1 = "Not Ready";
 		stage2 = "Not Ready";
 
 		database.ref().set({
+		text: result,
+		count: countt,
 		FirstPlayer: stage1,
 		SecondPlayer: stage2,
 		scoreOne: scoreone,
 		scoreTwo: scoretwo
+		})
+
+		database.ref().on("value", function(snap){
+			result = snap.val().text;
+			scoreone = snap.val().scoreOne;
+			scoretwo = snap.val().scoreTwo;
+			$("#who").text(result);
 		})
 	}
 }
