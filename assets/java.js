@@ -127,8 +127,8 @@ function testthis() {
 testthis();
 
 function checkResults() {
-	console.log("data1 = " + data1);
-	console.log("data2 = " + data2);
+	// console.log("data1 = " + data1);
+	// console.log("data2 = " + data2);
 
 	if (data1 == data2) {
 		if (three) {
@@ -257,7 +257,7 @@ function checkResults() {
 				dataone: data1,
 				datatwo: data2,
 				// scoreuno: scoreone,
-				scoredos: scoretwo
+				// scoredos: scoretwo
 			})
 
 			database.ref().on("value", function (snapp) {
@@ -329,6 +329,7 @@ function checkResults() {
 	}
 }
 
+
 $("body").on("click", "#restart", function () {
 	count++;
 
@@ -341,7 +342,7 @@ $("body").on("click", "#restart", function () {
 		count = snapp.val().toReset;
 
 		if (count == 1) {
-			alert("wait for the reset button to disappear");
+			alert("reset button has to disappear before you select your next choice");
 		} else if (count == 2) {
 
 			stage1 = "Ready";
@@ -370,6 +371,7 @@ $("body").on("click", "#restart", function () {
 			});
 
 			database.ref().on("value", function (snap) {
+
 				stage1 = snap.val().FirstPlayer;
 				stage2 = snap.val().SecondPlayer;
 				whoWon = snap.val().what;
